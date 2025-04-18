@@ -114,6 +114,15 @@ It includes extracting prices...
 
 ![Extraction](/screenshots/workflow-03.png)
 
+4. Workflow commands are located in `start_app.sh` 
+- it starts `terraform-setup.sh` script
+- then `python wf_orchestrate.py` with Prefect orchestrator
+- finally executes `streamlit run dashboard-app.py` to start dashboard app
+
+5. `wf_orchestrate.py` has 3 key tasks (extract, load, transform) that call code from `wf_extract.py` and `wf_load_transform.py`
+
+6. Dashboard app is based on Streamlit and located in `dashboard-app.py`
+
 
 ### 📊📈 Dashboard
 
