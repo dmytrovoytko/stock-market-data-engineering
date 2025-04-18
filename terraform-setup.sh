@@ -3,7 +3,7 @@
 set -e  # Exit on error
 
 echo
-if [ "$USE_TERRAFORM"=="true" ]; then
+if [ "$USE_TERRAFORM" = "true" ] ; then
 	echo '1. INSTALLING TERRAFORM'
 	echo
 else
