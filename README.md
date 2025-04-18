@@ -75,10 +75,17 @@ When you see these messages app is ready
 
 ![docker-compose up](/screenshots/docker-compose-01.png)
 
-2. Terraform Workflow starts automatically if you set so.
+2. Terraform setup and deployment starts automatically if you set to use it.
+
+![Terraform](/screenshots/terraform-01.png)
 
 
+### Dashboard
 
+If you run container locally you can click the link `Local URL: http://localhost:8501` to open the app dashboard.
 
+If you run container in CodeSpace it will pop-up the notification that `Your application running on port 8501 is available.` - click `Open in Browser`. 
 
+💡 In case you accidentally close that pop-up or dashboard page and you need it again, you can always open that page from `Ports` tab:
 
+![Streamlit app ports](/screenshots/streamlit-app-ports.png)
