@@ -38,14 +38,14 @@ This is my Data Engineering project in [DE ZoomCamp](https://github.com/DataTalk
 ## :toolbox: Tech stack
 
 - Python 3.11/3.12
-- Docker and docker-compose for containerization
-- Teraaform for infrastructure
-- Prefect for workflow orchestration
-- BigQuery or/and DuckDB (MotherDuck) for data warehouse
+- **Docker** and docker-compose for containerization
+- Terraform for infrastructure
+- **Prefect** for workflow orchestration
+- **BigQuery** or/and DuckDB (MotherDuck) for data warehouse
 - [optional] Google Cloud Storage
 - Pandas and Matplotlib for basic exploratory data analysis
-- Plotly and streamlit lightweight charts for data visualization
-- Streamlit for dashboard
+- Plotly and Streamlit lightweight charts for data visualization
+- **Streamlit** for dashboard
 
 ## 🚀 Instructions to reproduce
 
@@ -66,7 +66,7 @@ This is my Data Engineering project in [DE ZoomCamp](https://github.com/DataTalk
 9. If you don't want to use BigQuery the default settings will activate alternative - DuckDb database (you can also create/use free! MotherDuck account to use cloud data warehouse).
 
 
-### Generate BigQuery credentials
+### 🔐 Generate BigQuery credentials
 
 In order to let the workflow and dashboard connect to your BigQuery warehouse, you'll need to generate a keyfile. This is analogous to using a database username and password with most other data warehouses.
 
@@ -166,7 +166,7 @@ In this case tickers_prices and tickers_data tables can be partitioned by date, 
 
 ![BigQuery tables](/screenshots/tickers_data.png)
 
-Information about Sector opens interesting analytics like this:
+Information about Sector opens interesting analytic opportunities like this:
 
 ![visuals](/visuals/avg_price_distribution_by_sector-5.png)
 
