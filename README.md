@@ -21,7 +21,7 @@ Are recent storms in economy signal to stay away from investing, or it was in hi
 
 I think the better understanding we can only get by "playing" with data the way we want, not as investors channels present us. So let's Data Engineering help us with that!
 
-I decided to collect historical data of S&P 500 companies, enrich it, put it into warehouse like BigQuery and experiment with data analytics via Google Looker Studio. 
+I decided to collect historical data of S&P 500 companies, enrich it, put it into warehouse like BigQuery and experiment with data analytics via Google Looker Studio (then I found something great specifically for trading data). 
 Let's see how well we can deal with that!
 
 ## 🎯 Goals
@@ -33,4 +33,52 @@ This is my Data Engineering project in [DE ZoomCamp](https://github.com/DataTalk
 - process (extract, load, transform) data
 - deploy orchestration tool to manage pipeline
 - build a dashboard to visualize the data
+
+
+## :toolbox: Tech stack
+
+- Python 3.11/3.12
+- Docker and docker-compose for containerization
+- Teraaform for infrastructure
+- Prefect for workflow orchestration
+- BigQuery or/and DuckDB (MotherDuck) for data warehouse
+- [optional] Google Cloud Storage
+- Pandas and Matplotlib for basic exploratory data analysis
+- Plotly and streamlit lightweight charts for data visualization
+- Streamlit for dashboard
+
+## 🚀 Instructions to reproduce
+
+- [Setup environment](#hammer_and_wrench-setup-environment)
+- [Run workflow](#arrow_forward-run-workflow)
+- [Dashboard](#mag_right-dashboard)
+
+### :hammer_and_wrench: Setup environment
+
+1. **Fork this repo on GitHub**. Or use `git clone https://github.com/dmytrovoytko/stock-market-data-engineering.git` command to clone it locally, then `cd stock-market-data-engineering`.
+2. Create GitHub CodeSpace from the repo.
+3. **Start CodeSpace**
+4. The app works in docker container, **you don't need to install packages locally to test it**.
+5. Only if you want to develop the project locally, you can run `pip install -r requirements.txt` (project tested on python 3.11/3.12).
+6. You need to copy `example.env` to `.env` and edit setting according to your environment. Run `cp example.env .env` then edit `.env` file.
+7. If you want and can use BigQuery you need to save GCP credentials to the file `gcp-credentials.json` (recommended) and then set GOOGLE_APPLICATION_CREDENTIALS in `.env` file. Then edit GCP_PROJECT_NAME, BQ_DATASET, GCS_BUCKET (optional). You also need to set proper access for the service account to access BigQuery.
+8. If you want to use Terraform, set `USE_TERRAFORM=true` in `.env` file.
+9. If you don't want to use BigQuery the default settings will activate alternative - DuckDb database (you can also create/use free! MotherDuck account to use cloud data warehouse).
+
+### :arrow_forward: Run workflow
+
+1. **Run `bash deploy.sh` to start app container**. As packages include some quite heavy packages like Prefect, building container takes some time (~3min). When new log messages will stop appearing, you can press enter to return to a command line (service will keep running in background).
+
+![docker-compose up](/screenshots/docker-compose-00.png)
+
+When you see these messages app is ready
+
+![docker-compose up](/screenshots/docker-compose-01.png)
+
+2. Terraform Workflow starts automatically if you set so.
+
+
+
+
+
 
