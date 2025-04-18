@@ -2,7 +2,7 @@
 
 Data Engineering project for ZoomCamp`25: Stock prices -> BigQuery/DuckDB + TradingView charts in Streamlit
 
-ELT for 💹 [Yahoo Finance](https://finance.yahoo.com/markets/)
+ELT workflow for 💹 [Yahoo Finance](https://finance.yahoo.com/markets/)
 
 ![Data Engineering Stock/Crypto Analitics](/screenshots/stock-analytics-data-engineering.png)
 Project can be tested and deployed in **GitHub CodeSpaces** (the easiest option, and free), cloud virtual machine (AWS, Azure, GCP), or just locally.
@@ -34,6 +34,10 @@ This is my Data Engineering project in [DE ZoomCamp](https://github.com/DataTalk
 - deploy orchestration tool to manage pipeline
 - build a dashboard to visualize the data
 
+🕵️ Questions that I want to investigate during this project:
+- which stocks in Magnificent 7 have higher volatility?
+- what are the trends over last 5 years? which sectors perform better?
+- how to understand which stocks perform better than S&P500 ETF - not just believe youtube videos but to see in real data that I can analyze in different forms
 
 ## :toolbox: Tech stack
 
