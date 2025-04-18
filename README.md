@@ -71,13 +71,27 @@ This is my Data Engineering project in [DE ZoomCamp](https://github.com/DataTalk
 
 ![docker-compose up](/screenshots/docker-compose-00.png)
 
-When you see these messages app is ready
+When you see these messages the app is ready!
 
 ![docker-compose up](/screenshots/docker-compose-01.png)
+
+You can scroll up to see previous messages with the steps of the workflow.
 
 2. Terraform setup and deployment starts automatically if you set to use it.
 
 ![Terraform](/screenshots/terraform-01.png)
+
+3. Prefect Workflow starts automatically
+
+![Prefect](/screenshots/workflow-01.png)
+
+Including extracting prices
+
+![Extraction](/screenshots/workflow-02.png)
+
+... then loading and transformation
+
+![Extraction](/screenshots/workflow-03.png)
 
 
 ### Dashboard
