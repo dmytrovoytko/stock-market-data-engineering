@@ -174,6 +174,10 @@ Information about Sector opens interesting analytic opportunities like this:
 
 ![visuals](/visuals/avg_price_distribution_by_sector-5.png)
 
+One of the charts from [Looker Studio report](/visuals/Looker_Studio_Reporting.pdf):
+
+![visuals](/visuals/looker-studio-report-01.png)
+
 
 ### :stop_sign: Stop all containers
 
