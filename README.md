@@ -77,32 +77,32 @@ When you see these messages the app is ready!
 
 You can scroll up to see previous messages with the steps of the workflow.
 
-2. Terraform setup and deployment starts automatically if you set to use it.
+2. Terraform setup and deployment starts automatically if you set to use it:
 
 ![Terraform](/screenshots/terraform-01.png)
 
-3. Prefect Workflow starts automatically
+3. Prefect Workflow starts automatically:
 
 ![Prefect](/screenshots/workflow-01.png)
 
-Including extracting prices
+It includes extracting prices...
 
 ![Extraction](/screenshots/workflow-02.png)
 
-... then loading and transformation
+... then loading and transformation:
 
 ![Extraction](/screenshots/workflow-03.png)
 
 
-### Dashboard
+### 📊 Dashboard
 
-If you run container locally you can click the link `Local URL: http://localhost:8501` to open the app dashboard.
+If you run docker container locally you can click the link `Local URL: http://localhost:8501` to open the app dashboard.
 
 If you run container in CodeSpace it will pop-up the notification that `Your application running on port 8501 is available.` - click `Open in Browser`. 
 
 ![Streamlit app popup](/screenshots/app-open-popup.png)
 
-💡 In case you accidentally close that pop-up or dashboard page and you need it again, you can always open that page from `Ports` tab:
+💡 In case you accidentally close that pop-up or dashboard page and you need it again, you can always open that page from `Ports` tab (click that little 'globe' icon over a link):
 
 ![Streamlit app ports](/screenshots/streamlit-app-ports.png)
 
@@ -110,11 +110,59 @@ When you open the app it shows dialog like this, where you can choose a pair of 
 
 ![Streamlit app ports](/screenshots/dashboard-01.png)
 
-Simple comparison looks like this (done with Plotly, you can select a segment to "look closer" by left click and slide)
+Simple comparison looks like this (done with Plotly, you can left click and slide to look at a segment closer):
 
 ![Streamlit app ports](/screenshots/dashboard-02.png)
 
-And also you can see a more specific for stock market charts (scroll mouse wheel to zoom in/out)
+And also you can see charts more specific for stock market (scroll mouse wheel over it to zoom in/out):
 
 ![Streamlit app ports](/screenshots/dashboard-03.png)
 
+
+### 🏬 BigQuery tables
+
+Currently ELT creates 3 tables:
+- tickers_info with information about S&P500 companies (scraped from Wikipedia) including ticker symbols and company sectors
+- tickers_prices with open, low, high, close, volume for tickers by days, collected via yfinance package from Yahoo Finance
+- tickers_data with enriched stocks data like calculated tecnical indicators (MA, MACD, RSI) and Sectors
+
+In BigQuery tables can be partitioned and clastered to significantly improve performance and reduce costs (which depends on transferred data volume).
+
+In this case tickers_prices and tickers_data tables can be partitioned by date, and clustered by ticker (tickers_prices)... 
+
+![BigQuery tables](/screenshots/tickers_prices-partitioned.png)
+
+... or ticker and sector (tickers_data)
+
+![BigQuery tables](/screenshots/tickers_data.png)
+
+
+### :stop_sign: Stop all containers
+
+Run `docker compose down` in command line to stop the running conteiner.
+
+Don't forget to remove downloaded images if you experimented with project locally! Use `docker images` to list all images and then `docker image rm ...` to remove those you don't need anymore.
+
+And of course don't forget to destroy resources in Google Cloud/BigQuery!
+
+
+## Next steps
+
+Stock/Crypto Analitics is a very interesting topic, especially now when market volatility is so high!
+
+I plan to analyze more tecnical indicators and use BigQuery ML capabilities to play with predictions, I think it would be interesting!
+
+Stay tuned!
+
+
+## Support
+
+🙏 Thank you for your attention and time!
+
+- If you experience any issue while following this instruction (or something left unclear), please add it to [Issues](/issues), I'll be glad to help/fix. And your feedback, questions & suggestions are welcome as well!
+- Feel free to fork and submit pull requests.
+
+If you find this project helpful, please ⭐️star⭐️ my repo 
+https://github.com/dmytrovoytko/stock-market-data-engineering to help other people discover it 🙏
+
+Made with ❤️ in Ukraine 🇺🇦 Dmytro Voytko
