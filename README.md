@@ -63,7 +63,7 @@ This is my Data Engineering project in [DE ZoomCamp](https://github.com/DataTalk
 6. You need to copy `example.env` to `.env` and edit setting according to your environment. Run `cp example.env .env` then edit `.env` file.
 7. If you want and can use BigQuery you need to save GCP credentials to the file `gcp-credentials.json` (recommended) and then set GOOGLE_APPLICATION_CREDENTIALS in `.env` file. Then edit GCP_PROJECT_NAME, BQ_DATASET, GCS_BUCKET (optional). You also need to set proper access for the service account to access BigQuery (see the next part of description). 
 8. If you want to use Terraform, set `USE_TERRAFORM=true` in `.env` file.
-9. If you don't want to use BigQuery the default settings will activate alternative - DuckDb database (you can also create/use free! MotherDuck account to use cloud data warehouse).
+9. If you don't want to/can't use BigQuery, the default settings will activate alternative warehouse - DuckDb database (you can also create/use free! [MotherDuck](https://motherduck.com/) account to use cloud data warehouse).
 
 
 ### 🔐 Generate BigQuery credentials
@@ -151,8 +151,8 @@ And also you can see charts more specific for stock market (scroll mouse wheel o
 
 ### 🏬 BigQuery tables
 
-Currently ELT creates 3 tables:
-- tickers_info with information about S&P500 companies (scraped from Wikipedia) including ticker symbols and company sectors
+Currently this ELT workflow creates 3 tables:
+- tickers_info with information about S&P500 companies (scraped from Wikipedia), including ticker symbols and company sectors
 - tickers_prices with open, low, high, close, volume for tickers by days, collected via yfinance package from Yahoo Finance
 - tickers_data with enriched stocks data like calculated tecnical indicators (MA, MACD, RSI) and Sectors
 
