@@ -61,9 +61,30 @@ This is my Data Engineering project in [DE ZoomCamp](https://github.com/DataTalk
 4. The app works in docker container, **you don't need to install packages locally to test it**.
 5. Only if you want to develop the project locally, you can run `pip install -r requirements.txt` (project tested on python 3.11/3.12).
 6. You need to copy `example.env` to `.env` and edit setting according to your environment. Run `cp example.env .env` then edit `.env` file.
-7. If you want and can use BigQuery you need to save GCP credentials to the file `gcp-credentials.json` (recommended) and then set GOOGLE_APPLICATION_CREDENTIALS in `.env` file. Then edit GCP_PROJECT_NAME, BQ_DATASET, GCS_BUCKET (optional). You also need to set proper access for the service account to access BigQuery.
+7. If you want and can use BigQuery you need to save GCP credentials to the file `gcp-credentials.json` (recommended) and then set GOOGLE_APPLICATION_CREDENTIALS in `.env` file. Then edit GCP_PROJECT_NAME, BQ_DATASET, GCS_BUCKET (optional). You also need to set proper access for the service account to access BigQuery (see the next part of description). 
 8. If you want to use Terraform, set `USE_TERRAFORM=true` in `.env` file.
 9. If you don't want to use BigQuery the default settings will activate alternative - DuckDb database (you can also create/use free! MotherDuck account to use cloud data warehouse).
+
+
+### Generate BigQuery credentials
+
+In order to let the workflow and dashboard connect to your BigQuery warehouse, you'll need to generate a keyfile. This is analogous to using a database username and password with most other data warehouses.
+
+1. Start the [GCP credentials wizard](https://console.cloud.google.com/apis/credentials/wizard). Make sure your new project is selected in the header. If you do not see your account or project, click your profile picture to the right and verify you are using the correct email account. For **Credential Type**:
+- From the **Select an API** dropdown, choose **BigQuery API**
+- Select **Application data** for the type of data you will be accessing
+- Click **Next** to create a new service account.
+    
+2. Create a service account for your new project from the [Service accounts page](https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts?supportedpurview=project). For more information, refer to [Create a service account](https://developers.google.com/workspace/guides/create-credentials#create_a_service_account) in the Google Cloud docs. As an example for this guide, you can:
+- Type `bq-user` as the Service account name
+- From the **Select a role** dropdown, choose `BigQuery Job User` and `BigQuery Data Editor` roles and click **Continue**
+- Leave the **Grant users access to this service account** fields blank
+- Click **Done**
+
+3. Create a service account key for your new project from the [Service accounts page](https://console.cloud.google.com/iam-admin/serviceaccounts?walkthrough_id=iam--create-service-account-keys&start_index=1#step_index=1). For more information, refer to [Create a service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) in the Google Cloud docs. When downloading the JSON file, make sure to use a filename you can easily remember. For example, gcp-credentials.json. For security reasons, it is recommended that you protect this JSON file like you would your identity credentials; for example, don't add the JSON file into your version control software or share screenshots.
+
+4. I recommend to save it to `gcp` folder inside this project, so you follow `example.env` structure.
+
 
 ### :arrow_forward: Run workflow
 
@@ -94,7 +115,7 @@ It includes extracting prices...
 ![Extraction](/screenshots/workflow-03.png)
 
 
-### 📊 Dashboard
+### 📊📈 Dashboard
 
 If you run docker container locally you can click the link `Local URL: http://localhost:8501` to open the app dashboard.
 
@@ -106,7 +127,7 @@ If you run container in CodeSpace it will pop-up the notification that `Your app
 
 ![Streamlit app ports](/screenshots/streamlit-app-ports.png)
 
-When you open the app it shows dialog like this, where you can choose a pair of tickers to compare and parameter (open/low/high/close price, volume, different moving averages, MACD, RSI):
+When you open the app it shows the dialog, where you can choose a parameter (open/low/high/close price, volume, different moving averages, MACD, RSI) and a pair of tickers to compare:
 
 ![Streamlit app ports](/screenshots/dashboard-01.png)
 
@@ -146,7 +167,7 @@ Don't forget to remove downloaded images if you experimented with project locall
 And of course don't forget to destroy resources in Google Cloud/BigQuery!
 
 
-## Next steps
+## 🔜 Next steps
 
 Stock/Crypto Analitics is a very interesting topic, especially now when market volatility is so high!
 
