@@ -100,6 +100,21 @@ If you run container locally you can click the link `Local URL: http://localhost
 
 If you run container in CodeSpace it will pop-up the notification that `Your application running on port 8501 is available.` - click `Open in Browser`. 
 
+![Streamlit app popup](/screenshots/app-open-popup.png)
+
 💡 In case you accidentally close that pop-up or dashboard page and you need it again, you can always open that page from `Ports` tab:
 
 ![Streamlit app ports](/screenshots/streamlit-app-ports.png)
+
+When you open the app it shows dialog like this, where you can choose a pair of tickers to compare and parameter (open/low/high/close price, volume, different moving averages, MACD, RSI):
+
+![Streamlit app ports](/screenshots/dashboard-01.png)
+
+Simple comparison looks like this (done with Plotly, you can select a segment to "look closer" by left click and slide)
+
+![Streamlit app ports](/screenshots/dashboard-02.png)
+
+And also you can see a more specific for stock market charts (scroll mouse wheel to zoom in/out)
+
+![Streamlit app ports](/screenshots/dashboard-03.png)
+
