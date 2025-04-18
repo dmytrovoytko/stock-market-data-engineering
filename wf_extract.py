@@ -23,7 +23,7 @@ def normalize_df_columns(df):
 
 
 # extract companies & tickers list by scraping of S&P 500 data from Wikipedia
-def extract_snp500_list(scrape=True):
+def extract_snp500_list(scrape=SCRAPE):
     if scrape:
         url = "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies"
         df_list = pd.read_html(url, header=0)
@@ -42,9 +42,9 @@ def extract_snp500_list(scrape=True):
         # location: only last part "North Chicago, Illinois" -> "Illinois"
         df["location"] = df["headquarters_location"].map(lambda col: col.split(", ")[-1])
 
+        df.to_csv(DATA_DIR + f"snp500.csv", encoding="utf-8", index=False)
         if DEBUG:
             # save historical data to reuse without scraping again
-            df.to_csv(DATA_DIR + f"snp500.csv", encoding="utf-8", index=False)
             df.to_csv(DATA_DIR + f"snp500_{strftime('%Y-%m-%d')}.csv", encoding="utf-8", index=False)
     else:
         df = pd.read_csv(DATA_DIR + f"snp500.csv", encoding="utf-8")
@@ -158,7 +158,7 @@ def extract_data(mode=SAMPLE, selected_tickers=SELECTED_TICKERS, scrape=SCRAPE):
     print(f'\n[{strftime("%H:%M:%S")}] Extracting data: mode {mode}')
 
     # part 1: tickers_info
-    df_tickers_info = extract_snp500_list(scrape=False)  # True False TEMP
+    df_tickers_info = extract_snp500_list(scrape=scrape)  # True False
 
     # part 2: tickers_prices
     if len(selected_tickers) == 0:
