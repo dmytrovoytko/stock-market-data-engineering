@@ -1,0 +1,35 @@
+numpy==1.26.4
+pandas==2.2.3
+yfinance==0.2.55
+# pandas-ta==0.3.14b0 # install from file, updated
+lxml==5.3.1
+
+matplotlib==3.10.1
+plotly==6.0.1
+
+streamlit==1.44.1
+streamlit_lightweight_charts==0.7.20
+
+# for loading environment variables
+python-dotenv==1.1.0
+
+# for DuckDB
+duckdb==1.2.1
+
+# for BigQuery
+google-cloud-bigquery==3.31.0
+google-cloud-core==2.4.3
+# for Google Cloud Storage
+google-cloud==0.34.0
+
+grpcio-status==1.71.0
+db-dtypes==1.4.2
+
+# for parquet export/import
+pyarrow==19.0.1
+
+dbt-core==1.9.4
+dbt-bigquery==1.9.1
+
+prefect==2.20.17
+# prefect==3.3.4
