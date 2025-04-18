@@ -166,6 +166,10 @@ In this case tickers_prices and tickers_data tables can be partitioned by date, 
 
 ![BigQuery tables](/screenshots/tickers_data.png)
 
+Information about Sector opens interesting analytics like this:
+
+![visuals](/visuals/avg_price_distribution_by_sector-5.png)
+
 
 ### :stop_sign: Stop all containers
 
